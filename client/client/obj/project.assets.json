@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "ContentPackage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ContentPackage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ContentPackage.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ContentPackage/1.0.0": {
+      "type": "project",
+      "path": "../../ContentPackage/ContentPackage/ContentPackage.csproj",
+      "msbuildProject": "../../ContentPackage/ContentPackage/ContentPackage.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "ContentPackage >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Bao\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj": {
+              "projectPath": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -37,56 +37,12 @@ server.Close();
 void clientRecieve(Socket client)
 {
     byte[] data = new byte[1024];
-    int recv = client.Receive(data);
-    data = cleanByteArray(data);
-    Package? package = JsonSerializer.Deserialize<Package>(data);
-    bool flag = true;
-    if(package != null)
+    string username = "";
+    int recv = 0;
+    Package? package = new Package();
+    try
     {
-        if(package.content != null)
-        {
-            switch(package.kind)
-            {
-                case 202:
-                    Account account = JsonSerializer.Deserialize<Account>(package.content);
-                    Account accountCheck = DB.GetAccountByUserName(account.username);
-                    if (accountCheck != null)
-                    {
-                        if (accountCheck.password == account.password)
-                        {
-                            data = new byte[1024];
-                            package.kind = 101;
-                            package.content = "Đăng nhập thành công.";
-                            data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
-                            client.Send(data);
-                            clients.Add(account.username, client);
-                        }
-                        else
-                        {
-                            data = new byte[1024];
-                            package.kind = 100;
-                            package.content = "Tên đăng nhập hoặc mật khẩu không đúng!!";
-                            data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
-                            client.Send(data);
-                            flag = false;
-                        }
-                    }
-                    else
-                    {
-                        data = new byte[1024];
-                        package.kind = 100;
-                        package.content = "Tên đăng nhập hoặc mật khẩu không đúng!";
-                        data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
-                        client.Send(data);
-                        flag = false;
-                    }
-                    break;
-            }
-        }
-    }
-    while(flag)
-    {
-        try
+        while (true)
         {
             data = new byte[1024];
             recv = client.Receive(data);
@@ -99,17 +55,65 @@ void clientRecieve(Socket client)
                 {
                     switch (package.kind)
                     {
-                        case 204:
-                            
+                        #region 202
+                        case 202:
+                            Account account = JsonSerializer.Deserialize<Account>(package.content);
+                            Account accountCheck = DB.GetAccountByUserName(account.username);
+                            if (accountCheck != null)
+                            {
+                                if (accountCheck.password == account.password)
+                                {
+                                    data = new byte[1024];
+                                    package.kind = 101;
+                                    package.content = "Đăng nhập thành công.";
+                                    data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
+                                    client.Send(data);
+                                    if (clients.Keys.Contains(account.username))
+                                    {
+                                        clients.Remove(account.username);
+                                    }
+                                    clients.Add(account.username, client);
+                                    username = account.username;
+                                }
+                                else
+                                {
+                                    data = new byte[1024];
+                                    package.kind = 100;
+                                    package.content = "Tên đăng nhập hoặc mật khẩu không đúng!!";
+                                    data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
+                                    client.Send(data);
+                                }
+                            }
+                            else
+                            {
+                                data = new byte[1024];
+                                package.kind = 100;
+                                package.content = "Tên đăng nhập hoặc mật khẩu không đúng!";
+                                data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
+                                client.Send(data);
+                            }
                             break;
+                        #endregion
+                        #region 204
+                        case 204:
+                            Message message = JsonSerializer.Deserialize<Message>(package.content);
+                            if (clients.Keys.Contains(message.receiver))
+                            {
+                                Socket reciver = clients[message.receiver];
+                                reciver.Send(data);
+                            }
+                            break;
+                        #endregion
                     }
                 }
             }
-        }catch(Exception ex)
-        {
-            break;
         }
     }
+    catch (Exception ex)
+    {
+
+    }
+    clients.Remove(username);
     client.Shutdown(SocketShutdown.Both);
     client.Close();
 }

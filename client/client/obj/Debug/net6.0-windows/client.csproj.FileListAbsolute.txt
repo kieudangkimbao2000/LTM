@@ -18,3 +18,4 @@ D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows\refint\client.dll
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows\client.pdb
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows\client.genruntimeconfig.cache
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows\ref\client.dll
+D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows\client.Properties.Resources.resources

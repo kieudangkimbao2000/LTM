@@ -6,7 +6,9 @@ namespace client
 {
     internal static class Program
     {
-        public static Socket client;
+        public static TcpClient client;
+        public static StreamReader sr;
+        public static StreamWriter sw;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -17,8 +19,10 @@ namespace client
             // see https://aka.ms/applicationconfiguration.
 
             IPEndPoint iep = new IPEndPoint(IPAddress.Parse(getLocalIP()), 2000);
-            client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            client = new TcpClient();
             client.Connect(iep);
+            sr = new StreamReader(client.GetStream());
+            sw = new StreamWriter(client.GetStream());
 
             ApplicationConfiguration.Initialize();
             Application.Run(new ChatForm());

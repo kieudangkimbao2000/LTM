@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj",
         "projectName": "ContentPackage",
         "projectPath": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj",
-        "packagesPath": "C:\\Users\\Bao\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\kieud\\.nuget\\packages\\",
         "outputPath": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kieud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -65,11 +65,11 @@
         "projectUniqueName": "D:\\LTM\\project\\LTM\\server\\server\\server.csproj",
         "projectName": "server",
         "projectPath": "D:\\LTM\\project\\LTM\\server\\server\\server.csproj",
-        "packagesPath": "C:\\Users\\Bao\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\kieud\\.nuget\\packages\\",
         "outputPath": "D:\\LTM\\project\\LTM\\server\\server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kieud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

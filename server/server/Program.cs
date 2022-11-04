@@ -9,12 +9,11 @@ using System.Xml.Schema;
 
 Console.InputEncoding = Encoding.UTF8;
 IPEndPoint iep = new IPEndPoint(IPAddress.Parse(getLocalIP()), 2000);
-Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-server.Bind(iep);
-server.Listen(10);
-Console.WriteLine("Chờ client kết nối ...");
+TcpListener server = new TcpListener(iep);
+server.Start();
+Console.WriteLine("Cho client ket noi ...");
 bool active = true;
-Dictionary<string, Socket> clients = new Dictionary<string, Socket>();
+Dictionary<string, TcpClient> clients = new Dictionary<string, TcpClient>();
 Thread thread = new Thread(() => {
     string s = Console.ReadLine();
     if(s.Equals("false"))
@@ -26,29 +25,24 @@ thread.IsBackground = true;
 thread.Start();
 while(active)
 {
-    Socket client = server.Accept();
-    Console.WriteLine("Có client kết nối.");
+    TcpClient client = server.AcceptTcpClient();
+    Console.WriteLine("Co client ket noi.");
     Thread thread1 = new Thread(() => { clientRecieve(client); });
     thread1.IsBackground = true;
     thread1.Start();
 }
-server.Close();
 
-void clientRecieve(Socket client)
+void clientRecieve(TcpClient client)
 {
-    byte[] data = new byte[1024];
     string username = "";
-    int recv = 0;
+    StreamReader sr = new StreamReader(client.GetStream());
     Package? package = new Package();
     try
     {
         while (true)
         {
-            data = new byte[1024];
-            recv = client.Receive(data);
-            if (recv == 0) break;
-            data = cleanByteArray(data);
-            package = JsonSerializer.Deserialize<Package>(data);
+            string receiveStr = sr.ReadLine();
+            package = JsonSerializer.Deserialize<Package>(receiveStr);
             if (package != null)
             {
                 if (package.content != null)
@@ -59,15 +53,16 @@ void clientRecieve(Socket client)
                         case 202:
                             Account account = JsonSerializer.Deserialize<Account>(package.content);
                             Account accountCheck = DB.GetAccountByUserName(account.username);
+                            StreamWriter sw = new StreamWriter(client.GetStream());
                             if (accountCheck != null)
                             {
                                 if (accountCheck.password == account.password)
                                 {
-                                    data = new byte[1024];
                                     package.kind = 101;
-                                    package.content = "Đăng nhập thành công.";
-                                    data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
-                                    client.Send(data);
+                                    package.content = @"{\rtf1 Đăng nhập thành công. \par}";
+                                    string sendStr = JsonSerializer.Serialize<Package>(package);
+                                    sw.WriteLine(sendStr);
+                                    sw.Flush();
                                     if (clients.Keys.Contains(account.username))
                                     {
                                         clients.Remove(account.username);
@@ -77,20 +72,20 @@ void clientRecieve(Socket client)
                                 }
                                 else
                                 {
-                                    data = new byte[1024];
                                     package.kind = 100;
-                                    package.content = "Tên đăng nhập hoặc mật khẩu không đúng!!";
-                                    data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
-                                    client.Send(data);
+                                    package.content = @"{\rtf1 Tên đăng nhập hoặc mật khẩu không đúng! \par}";
+                                    string sendStr = JsonSerializer.Serialize<Package>(package);
+                                    sw.WriteLine(sendStr);
+                                    sw.Flush();
                                 }
                             }
                             else
                             {
-                                data = new byte[1024];
                                 package.kind = 100;
-                                package.content = "Tên đăng nhập hoặc mật khẩu không đúng!";
-                                data = JsonSerializer.SerializeToUtf8Bytes<Package>(package);
-                                client.Send(data);
+                                package.content = @"{\rtf1 Tên đăng nhập hoặc mật khẩu không đúng! \par}";
+                                string sendStr = JsonSerializer.Serialize<Package>(package);
+                                sw.WriteLine(sendStr);
+                                sw.Flush();
                             }
                             break;
                         #endregion
@@ -99,8 +94,10 @@ void clientRecieve(Socket client)
                             Message message = JsonSerializer.Deserialize<Message>(package.content);
                             if (clients.Keys.Contains(message.receiver))
                             {
-                                Socket reciver = clients[message.receiver];
-                                reciver.Send(data);
+                                TcpClient receiver = clients[message.receiver];
+                                sw = new StreamWriter(receiver.GetStream());
+                                sw.WriteLine(receiveStr);
+                                sw.Flush();
                             }
                             break;
                         #endregion
@@ -114,7 +111,7 @@ void clientRecieve(Socket client)
 
     }
     clients.Remove(username);
-    client.Shutdown(SocketShutdown.Both);
+    sr.Close();
     client.Close();
 }
 

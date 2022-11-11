@@ -11,7 +11,7 @@ Console.InputEncoding = Encoding.UTF8;
 IPEndPoint iep = new IPEndPoint(IPAddress.Parse(getLocalIP()), 2000);
 TcpListener server = new TcpListener(iep);
 server.Start();
-Console.WriteLine("Cho client ket noi ...");
+Console.WriteLine("Waiting client to connect ...");
 bool active = true;
 Dictionary<string, TcpClient> clients = new Dictionary<string, TcpClient>();
 Thread thread = new Thread(() => {
@@ -26,7 +26,7 @@ thread.Start();
 while(active)
 {
     TcpClient client = server.AcceptTcpClient();
-    Console.WriteLine("Co client ket noi.");
+    Console.WriteLine("A client is connected.");
     Thread thread1 = new Thread(() => { clientRecieve(client); });
     thread1.IsBackground = true;
     thread1.Start();
@@ -83,6 +83,30 @@ void clientRecieve(TcpClient client)
                             {
                                 package.kind = 100;
                                 package.content = @"{\rtf1 Tên đăng nhập hoặc mật khẩu không đúng! \par}";
+                                string sendStr = JsonSerializer.Serialize<Package>(package);
+                                sw.WriteLine(sendStr);
+                                sw.Flush();
+                            }
+                            break;
+                        #endregion
+                        #region 203
+                        case 203:
+                            Account acc = JsonSerializer.Deserialize<Account>(package.content);
+                            sw = new StreamWriter(client.GetStream());
+                            Boolean insertResult = DB.UserSignUp(acc);
+                            Console.WriteLine(insertResult);
+                            if (insertResult)
+                            {
+                                package.kind = 102;
+                                package.content = "Sign up successfully !";
+                                string sendStr = JsonSerializer.Serialize<Package>(package);
+                                sw.WriteLine(sendStr);
+                                sw.Flush();
+                            } 
+                            else
+                            {
+                                package.kind = 103;
+                                package.content = "Sign up unsuccessful !";
                                 string sendStr = JsonSerializer.Serialize<Package>(package);
                                 sw.WriteLine(sendStr);
                                 sw.Flush();

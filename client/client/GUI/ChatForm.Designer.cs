@@ -41,6 +41,7 @@
             this.btnLogIn = new System.Windows.Forms.Button();
             this.tbReceiver = new System.Windows.Forms.TextBox();
             this.dgvIcon = new System.Windows.Forms.DataGridView();
+            this.btn_signUp = new System.Windows.Forms.Button();
             this.panelFill.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -123,6 +124,7 @@
             this.panelTop.Controls.Add(this.tbPassword);
             this.panelTop.Controls.Add(this.btnLogIn);
             this.panelTop.Controls.Add(this.tbReceiver);
+            this.panelTop.Controls.Add(this.btn_signUp);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
@@ -170,6 +172,16 @@
             this.dgvIcon.TabIndex = 3;
             this.dgvIcon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIcon_CellContentClick);
             // 
+            // btn_signUp
+            // 
+            this.btn_signUp.Location = new System.Drawing.Point(402, 3);
+            this.btn_signUp.Name = "btn_signUp";
+            this.btn_signUp.Size = new System.Drawing.Size(75, 23);
+            this.btn_signUp.TabIndex = 4;
+            this.btn_signUp.Text = "Sign Up";
+            this.btn_signUp.UseVisualStyleBackColor = true;
+            this.btn_signUp.Click += new System.EventHandler(this.btn_signUp_Click);
+            // 
             // ChatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -205,5 +217,6 @@
         private TextBox tbPassword;
         private TextBox tbReceiver;
         private DataGridView dgvIcon;
+        private Button btn_signUp;
     }
 }

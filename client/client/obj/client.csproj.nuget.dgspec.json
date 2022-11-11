@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LTM\\project\\LTM\\client\\client\\client.csproj": {}
+    "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\client\\client\\client.csproj": {}
   },
   "projects": {
-    "D:\\LTM\\project\\LTM\\client\\client\\client.csproj": {
+    "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\client\\client\\client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LTM\\project\\LTM\\client\\client\\client.csproj",
+        "projectUniqueName": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\client\\client\\client.csproj",
         "projectName": "client",
-        "projectPath": "D:\\LTM\\project\\LTM\\client\\client\\client.csproj",
-        "packagesPath": "C:\\Users\\kieud\\.nuget\\packages\\",
-        "outputPath": "D:\\LTM\\project\\LTM\\client\\client\\obj\\",
+        "projectPath": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\client\\client\\client.csproj",
+        "packagesPath": "C:\\Users\\sieus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\client\\client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kieud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sieus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows7.0",
             "projectReferences": {
-              "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj": {
-                "projectPath": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj"
+              "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\ContentPackage\\ContentPackage\\ContentPackage.csproj": {
+                "projectPath": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\ContentPackage\\ContentPackage\\ContentPackage.csproj"
               }
             }
           }
@@ -66,17 +66,17 @@
         }
       }
     },
-    "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj": {
+    "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\ContentPackage\\ContentPackage\\ContentPackage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj",
+        "projectUniqueName": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\ContentPackage\\ContentPackage\\ContentPackage.csproj",
         "projectName": "ContentPackage",
-        "projectPath": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\ContentPackage.csproj",
-        "packagesPath": "C:\\Users\\kieud\\.nuget\\packages\\",
-        "outputPath": "D:\\LTM\\project\\LTM\\ContentPackage\\ContentPackage\\obj\\",
+        "projectPath": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\ContentPackage\\ContentPackage\\ContentPackage.csproj",
+        "packagesPath": "C:\\Users\\sieus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sieus\\Desktop\\LTM-develop\\LTM-develop\\ContentPackage\\ContentPackage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kieud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sieus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

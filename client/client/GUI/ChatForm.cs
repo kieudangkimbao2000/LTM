@@ -222,5 +222,11 @@ namespace client.GUI
         {
 
         }
+
+        private void btn_signUp_Click(object sender, EventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.Show();
+        }
     }
 }

@@ -10,3 +10,15 @@ D:\LTM\project\LTM\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage
 D:\LTM\project\LTM\ContentPackage\ContentPackage\obj\Debug\net6.0\refint\ContentPackage.dll
 D:\LTM\project\LTM\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.pdb
 D:\LTM\project\LTM\ContentPackage\ContentPackage\obj\Debug\net6.0\ref\ContentPackage.dll
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\bin\Debug\net6.0\ContentPackage.deps.json
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\bin\Debug\net6.0\ContentPackage.dll
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\bin\Debug\net6.0\ContentPackage.pdb
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.csproj.AssemblyReference.cache
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.AssemblyInfoInputs.cache
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.AssemblyInfo.cs
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.csproj.CoreCompileInputs.cache
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.dll
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\refint\ContentPackage.dll
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ContentPackage.pdb
+C:\Users\sieus\Desktop\LTM-develop\LTM-develop\ContentPackage\ContentPackage\obj\Debug\net6.0\ref\ContentPackage.dll

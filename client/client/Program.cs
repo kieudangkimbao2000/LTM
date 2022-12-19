@@ -18,19 +18,19 @@ namespace client
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(getLocalIP()), 2000);
+            IPEndPoint iep = new IPEndPoint(IPAddress.Parse(getLocalIP("kimbao")), 2000);
             client = new TcpClient();
             client.Connect(iep);
             sr = new StreamReader(client.GetStream());
             sw = new StreamWriter(client.GetStream());
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new ChatForm());
+            Application.Run(new MainForm());
         }
 
-        static string getLocalIP()
+        static string getLocalIP(string computerName)
         {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
+            var host = Dns.GetHostByName(computerName);
             foreach (var ip in host.AddressList)
             {
                 if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)

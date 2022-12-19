@@ -6,7 +6,6 @@ D:\LTM\project\LTM\client\client\bin\Debug\net6.0-windows7.0\client.pdb
 D:\LTM\project\LTM\client\client\bin\Debug\net6.0-windows7.0\ContentPackage.dll
 D:\LTM\project\LTM\client\client\bin\Debug\net6.0-windows7.0\ContentPackage.pdb
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.csproj.AssemblyReference.cache
-D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.GUI.ChatForm.resources
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.Properties.Resources.resources
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.csproj.GenerateResource.cache
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.GeneratedMSBuildEditorConfig.editorconfig
@@ -19,3 +18,6 @@ D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\refint\client.dll
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.pdb
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.genruntimeconfig.cache
 D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\ref\client.dll
+D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.GUI.GroupForm.resources
+D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.GUI.MainForm.resources
+D:\LTM\project\LTM\client\client\obj\Debug\net6.0-windows7.0\client.GUI.AddFriendForm.resources
